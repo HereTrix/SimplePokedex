@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ttX-ig-NfJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="TTT-yX-Rap">
+            <objects>
+                <viewController id="ttX-ig-NfJ" customClass="PokemonPreviewViewController" customModule="SimplePokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qiS-XB-YwO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9o-fk-4r7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="s1j-Tg-RT6"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="MIq-IN-mhy" kind="embed" id="k5n-JK-UTg"/>
+                                </connections>
+                            </containerView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="cvH-c2-b6i">
+                                <rect key="frame" x="0.0" y="214" width="414" height="648"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1I6-p6-wxf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data in local cache. Please check internet connection and try to reload." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgF-D3-kpb">
+                                        <rect key="frame" x="50" y="417.5" width="314" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="GgF-D3-kpb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1I6-p6-wxf" secondAttribute="leading" constant="50" id="GUq-Bw-cbA"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GgF-D3-kpb" secondAttribute="trailing" constant="50" id="awL-tc-jwm"/>
+                                    <constraint firstItem="GgF-D3-kpb" firstAttribute="centerY" secondItem="1I6-p6-wxf" secondAttribute="centerY" id="smf-Ew-kGt"/>
+                                    <constraint firstItem="GgF-D3-kpb" firstAttribute="centerX" secondItem="1I6-p6-wxf" secondAttribute="centerX" id="ubJ-52-6Jp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiZ-5b-90q" customClass="LoaderView" customModule="SimplePokedex" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="pokeball"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9yP-YQ-mF0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TiZ-5b-90q" secondAttribute="bottom" id="EvG-dw-Yfz"/>
+                            <constraint firstItem="9yP-YQ-mF0" firstAttribute="bottom" secondItem="cvH-c2-b6i" secondAttribute="bottom" id="Gh5-n0-cSS"/>
+                            <constraint firstItem="1I6-p6-wxf" firstAttribute="bottom" secondItem="qiS-XB-YwO" secondAttribute="bottom" id="LfL-Se-xVs"/>
+                            <constraint firstItem="F9o-fk-4r7" firstAttribute="top" secondItem="9yP-YQ-mF0" secondAttribute="top" id="Oru-V4-8di"/>
+                            <constraint firstItem="9yP-YQ-mF0" firstAttribute="trailing" secondItem="F9o-fk-4r7" secondAttribute="trailing" id="TgE-Sl-Ptv"/>
+                            <constraint firstItem="9yP-YQ-mF0" firstAttribute="trailing" secondItem="cvH-c2-b6i" secondAttribute="trailing" id="Zu9-as-GWG"/>
+                            <constraint firstItem="1I6-p6-wxf" firstAttribute="top" secondItem="qiS-XB-YwO" secondAttribute="top" id="dLc-Jy-OMO"/>
+                            <constraint firstItem="cvH-c2-b6i" firstAttribute="top" secondItem="F9o-fk-4r7" secondAttribute="bottom" id="euL-xH-le2"/>
+                            <constraint firstItem="cvH-c2-b6i" firstAttribute="leading" secondItem="9yP-YQ-mF0" secondAttribute="leading" id="fFB-61-gZU"/>
+                            <constraint firstAttribute="trailing" secondItem="TiZ-5b-90q" secondAttribute="trailing" id="nKO-C4-mY5"/>
+                            <constraint firstItem="1I6-p6-wxf" firstAttribute="trailing" secondItem="qiS-XB-YwO" secondAttribute="trailing" id="ndO-ft-YiT"/>
+                            <constraint firstItem="F9o-fk-4r7" firstAttribute="leading" secondItem="9yP-YQ-mF0" secondAttribute="leading" id="pGa-PZ-l3O"/>
+                            <constraint firstItem="1I6-p6-wxf" firstAttribute="leading" secondItem="qiS-XB-YwO" secondAttribute="leading" id="pxV-1A-vke"/>
+                            <constraint firstItem="TiZ-5b-90q" firstAttribute="top" secondItem="qiS-XB-YwO" secondAttribute="top" id="sIX-LH-J4Q"/>
+                            <constraint firstItem="TiZ-5b-90q" firstAttribute="leading" secondItem="qiS-XB-YwO" secondAttribute="leading" id="saK-CV-wbE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="2qT-S4-yw7">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="5nm-Fn-DXB">
+                            <connections>
+                                <action selector="refresh" destination="ttX-ig-NfJ" id="M9j-1p-eLW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="errorView" destination="1I6-p6-wxf" id="ddS-Zc-Sze"/>
+                        <outlet property="loadingView" destination="TiZ-5b-90q" id="w30-uJ-4w8"/>
+                        <outlet property="tableView" destination="cvH-c2-b6i" id="X02-x3-ZHp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ggh-xJ-jdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="111.83035714285714"/>
+        </scene>
+        <!--Sprite List View Controller-->
+        <scene sceneID="gBo-D8-VUg">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="10" navigationOrientation="horizontal" spineLocation="none" id="MIq-IN-mhy" customClass="SpriteListViewController" customModule="SimplePokedex" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rS3-tr-wcG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="112"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="pokeball" width="2000" height="2000"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

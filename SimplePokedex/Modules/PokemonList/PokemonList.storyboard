@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V4l-MO-d9O">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pokemon List View Controller-->
+        <scene sceneID="Ejh-em-f7m">
+            <objects>
+                <viewController storyboardIdentifier="PokemonListViewController" id="V4l-MO-d9O" customClass="PokemonListViewController" customModule="SimplePokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C7o-D6-FDe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6P-ny-JB0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="V4l-MO-d9O" id="Pd0-CJ-6ga"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x3A-GV-xix">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MR0-nL-gT6">
+                                    <size key="itemSize" width="110" height="110"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xt-TI-je7" customClass="LoaderView" customModule="SimplePokedex" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="pokeball"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vLu-jd-d4z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="x3A-GV-xix" firstAttribute="leading" secondItem="vLu-jd-d4z" secondAttribute="leading" id="6Xr-N2-cLl"/>
+                            <constraint firstItem="2xt-TI-je7" firstAttribute="leading" secondItem="C7o-D6-FDe" secondAttribute="leading" id="8zl-zD-V6c"/>
+                            <constraint firstItem="g6P-ny-JB0" firstAttribute="top" secondItem="C7o-D6-FDe" secondAttribute="topMargin" id="F61-nQ-ueD"/>
+                            <constraint firstItem="vLu-jd-d4z" firstAttribute="bottom" secondItem="x3A-GV-xix" secondAttribute="bottom" id="KrK-ya-PXx"/>
+                            <constraint firstItem="g6P-ny-JB0" firstAttribute="leading" secondItem="vLu-jd-d4z" secondAttribute="leading" id="Prc-KN-JYX"/>
+                            <constraint firstItem="x3A-GV-xix" firstAttribute="top" secondItem="g6P-ny-JB0" secondAttribute="bottom" id="Wd1-0m-2ZH"/>
+                            <constraint firstItem="g6P-ny-JB0" firstAttribute="trailing" secondItem="vLu-jd-d4z" secondAttribute="trailing" id="e0S-3i-ZJM"/>
+                            <constraint firstAttribute="bottom" secondItem="2xt-TI-je7" secondAttribute="bottom" id="eBH-8p-pgu"/>
+                            <constraint firstItem="2xt-TI-je7" firstAttribute="top" secondItem="C7o-D6-FDe" secondAttribute="top" id="pKU-W1-Q9b"/>
+                            <constraint firstItem="vLu-jd-d4z" firstAttribute="trailing" secondItem="x3A-GV-xix" secondAttribute="trailing" id="qwC-8L-7Y9"/>
+                            <constraint firstAttribute="trailing" secondItem="2xt-TI-je7" secondAttribute="trailing" id="tmw-Ny-9YD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="x3A-GV-xix" id="TFZ-05-uUZ"/>
+                        <outlet property="loaderView" destination="2xt-TI-je7" id="E9w-bH-jip"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tqO-4v-NDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pokeball" width="2000" height="2000"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

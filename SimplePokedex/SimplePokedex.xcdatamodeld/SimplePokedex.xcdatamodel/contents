@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pokemon" representedClassName="PKPokemon" syncable="YES" codeGenerationType="category">
+        <attribute name="height" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <relationship name="sprites" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Sprites" inverseName="pokemon" inverseEntity="Sprites"/>
+        <relationship name="stats" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Stat" inverseName="pokemon" inverseEntity="Stat"/>
+        <relationship name="types" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Type" inverseName="pokemons" inverseEntity="Type"/>
+    </entity>
+    <entity name="Sprites" representedClassName="PKSprites" syncable="YES" codeGenerationType="category">
+        <attribute name="backDefault" optional="YES" attributeType="String"/>
+        <attribute name="backFemale" optional="YES" attributeType="String"/>
+        <attribute name="backShiny" optional="YES" attributeType="String"/>
+        <attribute name="backShinyFemale" optional="YES" attributeType="String"/>
+        <attribute name="frontDefault" optional="YES" attributeType="String"/>
+        <attribute name="frontFemale" optional="YES" attributeType="String"/>
+        <attribute name="frontShiny" optional="YES" attributeType="String"/>
+        <attribute name="frontShinyFemale" optional="YES" attributeType="String"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="sprites" inverseEntity="Pokemon"/>
+    </entity>
+    <entity name="Stat" representedClassName="PKStat" syncable="YES" codeGenerationType="category">
+        <attribute name="base" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="stats" inverseEntity="Pokemon"/>
+    </entity>
+    <entity name="Type" representedClassName="PKType" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="pokemons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="types" inverseEntity="Pokemon"/>
+    </entity>
+    <elements>
+        <element name="Pokemon" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Sprites" positionX="-18" positionY="36" width="128" height="178"/>
+        <element name="Stat" positionX="-54" positionY="0" width="128" height="88"/>
+        <element name="Type" positionX="-36" positionY="27" width="128" height="73"/>
+    </elements>
+</model>
