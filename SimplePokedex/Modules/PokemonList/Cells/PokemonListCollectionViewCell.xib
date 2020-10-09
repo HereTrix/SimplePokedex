@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="264" height="247"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="749" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="nrt-Xs-Xyu">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="749" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="nrt-Xs-Xyu" customClass="SplashableImageView" customModule="SimplePokedex" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="254" height="197"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yZm-Sx-9Va">

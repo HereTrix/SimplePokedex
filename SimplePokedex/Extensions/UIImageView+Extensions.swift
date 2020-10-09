@@ -11,17 +11,8 @@ extension UIImageView {
     
     func setAsync(image: String, placeholder: UIImage? = nil) {
         
-        self.image = placeholder
+//        self.image = placeholder
         
-        ImageLoader.shared.load(image: image) { [weak self] loadedImage in
-            
-            guard let image = loadedImage else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self?.image = image
-            }
-        }
+        ImageLoader.shared.load(image: image, for: self, placeholder: placeholder)
     }
 }

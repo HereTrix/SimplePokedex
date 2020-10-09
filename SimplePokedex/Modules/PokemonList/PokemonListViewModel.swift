@@ -35,7 +35,6 @@ class PokemonListViewModel: PokemonListViewModelType {
     
     fileprivate func loadNextPage() {
         isPageLoading = true
-        delegate?.dataLoading(isFinished: true)
         
         let pageSize = PokemonLoader.shared.pageSize
         
@@ -46,6 +45,7 @@ class PokemonListViewModel: PokemonListViewModelType {
         }
         
         PokemonLoader.shared.load(page: page) { [weak self] in
+            self?.delegate?.dataLoading(isFinished: true)
             self?.isPageLoading = false
         }
     }
@@ -67,10 +67,18 @@ extension PokemonListViewModel: PokemonListViewModelInput {
     
     func displayedItem(at index: Int) {
         
+        let item = listFetcher.item(at: index)
+        
+        // Preload item
+        if item.sprites == nil,
+           let name = item.name {
+            PokemonLoader.shared.load(pokemon: name)
+        }
+        
         // Prevent from loading few times
         guard filter.count == 0,
             !isPageLoading,
-            index == listFetcher.itemsCount() - PokemonLoader.shared.pageSize / 4 else {
+            index > listFetcher.itemsCount() - PokemonLoader.shared.pageSize / 4 else {
             return
         }
         
@@ -81,12 +89,10 @@ extension PokemonListViewModel: PokemonListViewModelInput {
 extension PokemonListViewModel: PokemonListFetcherDelegate {
     func updatedItems() {
         delegate?.updatedItems()
-        delegate?.dataLoading(isFinished: true)
     }
     
     func addedItem(at index: Int) {
         delegate?.addedItem(at: index)
-        delegate?.dataLoading(isFinished: true)
     }
     
     func updatedItem(at index: Int) {

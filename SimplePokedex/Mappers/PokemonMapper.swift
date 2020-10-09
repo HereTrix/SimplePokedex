@@ -11,7 +11,8 @@ class PokemonMapper {
     
     class func mapToListItem(pokemon: PKPokemon) -> PokemonListItem {
         
-        return PokemonListItem(name: pokemon.name!, imageLink: pokemon.sprites?.frontDefault)
+        return PokemonListItem(name: pokemon.name!,
+                               imageLink: pokemon.sprites?.frontDefault)
     }
     
     static func mapSprites(pokemon: PokemonModel) -> [String] {

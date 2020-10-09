@@ -18,7 +18,14 @@ class PokemonListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        iconView.image = nil
+    }
+    
     func configure(with item: PokemonListItem) {
+        iconView.image = nil
+        
         let placeholder = UIImage(named: "pokeball")
         if let imageLink = item.imageLink {
             iconView.setAsync(image: imageLink, placeholder: placeholder)

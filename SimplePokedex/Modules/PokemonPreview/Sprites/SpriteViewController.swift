@@ -9,11 +9,11 @@ import UIKit
 
 class SpriteViewController: UIViewController {
 
-    private var imageView: UIImageView = UIImageView()
+    private var imageView: UIImageView = SplashableImageView()
     
     var sprite: String! {
         didSet {
-            imageView.setAsync(image: sprite, placeholder: UIImage(named: "pokeball"))
+//            imageView.setAsync(image: sprite, placeholder: UIImage(named: "pokeball"))
         }
     }
     
@@ -23,6 +23,13 @@ class SpriteViewController: UIViewController {
         super.viewDidLoad()
         
         attachImageView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        imageView.image = nil
+        imageView.setAsync(image: sprite, placeholder: UIImage(named: "pokeball"))
     }
     
     private func attachImageView() {

@@ -45,6 +45,7 @@
 		46B4C3DE252EFAF9006B001D /* PokemonMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B4C3DD252EFAF9006B001D /* PokemonMapperTests.swift */; };
 		46C919B7252F07CD00507373 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C919B6252F07CD00507373 /* MockCoreDataStack.swift */; };
 		46C919BC252F1EE000507373 /* SpriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C919BB252F1EE000507373 /* SpriteListViewController.swift */; };
+		46C919C02530715C00507373 /* SplashableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C919BF2530715C00507373 /* SplashableImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		46B4C3DD252EFAF9006B001D /* PokemonMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMapperTests.swift; sourceTree = "<group>"; };
 		46C919B6252F07CD00507373 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		46C919BB252F1EE000507373 /* SpriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteListViewController.swift; sourceTree = "<group>"; };
+		46C919BF2530715C00507373 /* SplashableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashableImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				46B4C3CC252E30BA006B001D /* LoaderView.swift */,
+				46C919BF2530715C00507373 /* SplashableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46B4C38B252CEEE2006B001D /* PokemonListItem.swift in Sources */,
+				46C919C02530715C00507373 /* SplashableImageView.swift in Sources */,
 				46644BE0252C681500EC78C1 /* SimplePokedex.xcdatamodeld in Sources */,
 				46B4C392252CF00C006B001D /* ImageLoader.swift in Sources */,
 				46B4C3CD252E30BA006B001D /* LoaderView.swift in Sources */,

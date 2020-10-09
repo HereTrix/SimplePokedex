@@ -42,24 +42,29 @@ class PokemonLoader {
             let mapped = APIMapper.map(list: items)
             CoreDataManager.shared.addPokemonsIfNew(from: mapped)
             
+            // Preload items from list
+            let group = DispatchGroup()
+
             for item in items {
-                
-                self.pokemonFetchingQueue.async {
-                    self.load(pokemon: item.name) { _ in
-                    }
+                group.enter()
+                self.load(pokemon: item.name) { _ in
+                    group.leave()
                 }
             }
-            self.currentPage = nil
-            completion()
+
+            group.notify(queue: .main) {
+                self.currentPage = nil
+                completion()
+            }
         }
     }
     
-    func load(pokemon name: String, completion: @escaping (PokemonModel?)->Void) {
+    func load(pokemon name: String, completion: ((PokemonModel?)->Void)? = nil) {
         
         APIService.service.fetchPokemon(name: name) { pokemon in
             
             guard let pokemon = pokemon else {
-                completion(nil)
+                completion?(nil)
                 return
             }
             
@@ -67,7 +72,7 @@ class PokemonLoader {
             
             CoreDataManager.shared.update(pokemon: pokemonModel)
             
-            completion(pokemonModel)
+            completion?(pokemonModel)
         }
     }
     

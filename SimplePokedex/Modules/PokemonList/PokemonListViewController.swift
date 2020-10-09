@@ -93,7 +93,9 @@ extension PokemonListViewController: PokemonListViewModelDelegate {
     }
     
     func dataLoading(isFinished: Bool) {
-        loaderView.isHidden = isFinished
+        DispatchQueue.main.async {
+            self.loaderView.isHidden = isFinished
+        }
     }
 }
 
